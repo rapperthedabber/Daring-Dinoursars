@@ -1,3 +1,36 @@
-h1 {
-    color:aqua;
+
+
+.search-bar-with-logo {
+    display: block;
+    border: 1px solid;
+    width: 50%;
+    background-color: rgb(97, 223, 255);
+    padding-left: 20px;
+    padding-right: 20px;
+    margin: auto;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    
 }
+
+h1 {
+    text-align: center;
+}
+
+.input-group-rounded {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.input-group-rounded .input-group-field {
+    border-radius: 5000px 0 0 5000px;
+    padding-left: 1rem;
+  }
+  
+.input-group-rounded .input-group-button .button {
+    border-radius: 0 5000px 5000px 0;
+    font-size: 0.8rem;
+  }
+  
+  
