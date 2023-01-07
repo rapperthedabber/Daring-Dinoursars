@@ -1,26 +1,29 @@
-
+.main-body-section {
+    background-image: url("https://www.co.lancaster.pa.us/ImageRepository/Document?documentID=12365");
+}
 
 .search-bar-with-logo {
     display: block;
-    border: 1px solid;
-    width: 50%;
-    background-color: rgb(97, 223, 255);
+    max-width: 50%;
     padding-left: 20px;
     padding-right: 20px;
     margin: auto;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
     
 }
 
-h1 {
+.header-1 {
     text-align: center;
+    font-family: "Trirong", serif;
+    text-shadow: 3px 3px 3px #ababab;
+    font-size: 70px;
+    padding-top: 50px;
 }
 
 .input-group-rounded {
     margin-left: auto;
     margin-right: auto;
+    padding-top: 30px;
+    padding-bottom: 30px;
 }
 
 .input-group-rounded .input-group-field {
@@ -33,4 +36,35 @@ h1 {
     font-size: 0.8rem;
   }
   
-  
+.description-paragraph {
+    text-align: center;
+    font-family: "Trirong", serif;
+    text-shadow: 1px 1px 1px #ababab;
+}
+
+.api-logos {
+    display: block;
+    margin: auto;
+}
+
+.horizontal-flex-container {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+}
+
+.dictionary-logo {
+    align-self: center;
+}
+
+.youtube-logo {
+    align-self: center;
+}
+
+.logo-images {
+    padding: 5px;
+}
+
+.footer-background {
+    background-color: white;
+}
