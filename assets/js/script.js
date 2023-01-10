@@ -9,7 +9,8 @@ function Definition(){
 fetch(url).then(response =>(response.json())).then(data=> {
       localStorage.setItem("Definition", searchbar.value);
       var definition = data[0].meanings
-      $("#dictionaryTextArea").append(origin)
+
+      $("#dictionaryTextArea").append()
 
 
      for(const ele of definition){
@@ -22,8 +23,9 @@ fetch(url).then(response =>(response.json())).then(data=> {
      ele.definitions.forEach(definition => {
         console.log(definition)
         console.log(definitionPart[0].definition)
+       
        $("#dictionaryTextArea").append(definition , part)
-       $("#dictionaryTextArea").append(definition , definitionPart[0].definition)
+       $("#dictionaryTextArea").append(definition , definitionPart[0].definition[3])
     
       })
      
@@ -40,4 +42,9 @@ fetch(url).then(response =>(response.json())).then(data=> {
 }
 
 button.addEventListener("click", Definition );
-
+searchbar.addEventListener('keypress', function (e) {
+    if (e.key === 'Enter') {
+      // code for enter
+      Definition()
+    }
+});
