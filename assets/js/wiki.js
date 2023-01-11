@@ -1,13 +1,13 @@
 // wikipedia-api code 
 
 // fetchWikipedia 
-function fetchWikipedia() { 
+function fetchWikipedia(searchTerm) { 
 
     var url = "https://en.wikipedia.org/w/api.php"; 
 
     var params = {
         action: "opensearch",
-        search: "Cheese",
+        search: searchTerm,
         limit: "5",
         namespace: "0",
         format: "json"
@@ -23,4 +23,10 @@ function fetchWikipedia() {
 
 }
 
-fetchWikipedia();
+$('#searchBtn').click(function(event) {
+    event.preventDefault();
+
+    var search = $('#search').val();
+    console.log(search);
+    fetchWikipedia(search);
+})
