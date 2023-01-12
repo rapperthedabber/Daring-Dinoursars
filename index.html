@@ -13,7 +13,11 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Trirong">
     <meta class="foundation-mq" name="foundation-mq" content>
     <title>Dictionary Project</title>
-   
+    <!-- <style>
+        body {
+           background-image: url("https://www.co.lancaster.pa.us/ImageRepository/Document?documentID=12365");
+        }
+     </style> -->
 </head>
 
 <body>
@@ -28,8 +32,6 @@
                     <li><a href="#">Contact</a></li>
                 </ul>
             </div>
-          
-
             <!-- <div class="top-bar-right">
             <ul class="menu">
               <li><input type="search" placeholder="Search"></li>
@@ -42,17 +44,15 @@
         <div class="header-border-section">
             <h1 class="header-1 text-uppercase">Daring Dinosaurs Dictionary</h1>
         </div>
-        <div class="description-paragraph">  
+        <div class="description-paragraph">
             <p>Our website will take a word and return back the definition, wikipedia entry, and top 5 Youtube results
                 for the entered word.</p>
         </div>
         <div class="search-bar-with-logo text-center">
             <div class="input-group input-group-rounded" style="width: 500px;">
-                <input type="text" name="customer" class="input-group-field" type="search" id="search">
+                <input class="input-group-field" type="search" id="search">
                 <div class="input-group-button">
-                   
                     <input type="submit" class="button secondary" id="searchBtn">
-                
                 </div>
             </div>
         </div>
@@ -65,11 +65,17 @@
         </div>
     </div>
 
-    <div class="row">
-        <div class="col-md-12">
-            <div id="videos"></div>
-        </div>
+  <div class="row">
+    <div class="col-md-12">
+      <div id="videos"></div>
     </div>
+  </div>
+
+  <div class="wikiResult row">
+    <div class="col-md-12">
+        <h2 id="wiki-title"></h2>
+        <p id="wiki-article"></p>
+  </div>
 
     <div class="row column footer-background">
         <hr>
@@ -87,8 +93,9 @@
     <script src="assets/js/app.js"></script>
     <script src="assets/js/script.js"></script>
     <script src="./assets/js/youTube.js"></script>
-
-
+    <script>
+        $(document).foundation();
+    </script>
 </body>
 
 </html>
