@@ -2,18 +2,18 @@
 <html lang="en-us">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="assets/css/foundation.css">
-    <link rel="stylesheet" href="assets/css/app.css">
-    <!-- <link rel="reset" href="assets/css/reset.css"> -->
-    <link rel="stylesheet" href="assets/css/stylesheet.css">
-    <!-- <link rel="stylesheet" href="https://dhbhdrzi4tiry.cloudfront.net/cdn/sites/foundation.min.css"> -->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Trirong">
-    <meta class="foundation-mq" name="foundation-mq" content>
-    <title>Dictionary Project</title>
-    <!-- <style>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="assets/css/foundation.css">
+  <link rel="stylesheet" href="assets/css/app.css">
+  <!-- <link rel="reset" href="assets/css/reset.css"> -->
+  <link rel="stylesheet" href="assets/css/stylesheet.css">
+  <!-- <link rel="stylesheet" href="https://dhbhdrzi4tiry.cloudfront.net/cdn/sites/foundation.min.css"> -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Trirong">
+  <meta class="foundation-mq" name="foundation-mq" content>
+  <title>Dictionary Project</title>
+  <!-- <style>
         body {
            background-image: url("https://www.co.lancaster.pa.us/ImageRepository/Document?documentID=12365");
         }
@@ -21,53 +21,55 @@
 </head>
 
 <body>
-    <div class="top-bar">
-        <div class="row">
-            <div class="top-bar-left">
-                <ul class="dropdown menu" data-dropdown-menu>
-                    <li class="menu-text">Daring Dinosaurs Project</li>
-                    <li class="has-submenu">
-                    <li><a href="#">Home</a></li>
-                    <li><a href="#">About</a></li>
-                    <li><a href="#">Contact</a></li>
-                </ul>
-            </div>
-            <!-- <div class="top-bar-right">
+  <div class="top-bar">
+    <div class="row">
+      <div class="top-bar-left">
+        <ul class="dropdown menu" data-dropdown-menu>
+          <li class="menu-text">Daring Dinosaurs Project</li>
+          <li class="has-submenu">
+          <li><a href="#">Home</a></li>
+          <li><a href="#">About</a></li>
+          <li><a href="#">Contact</a></li>
+        </ul>
+      </div>
+      <!-- <div class="top-bar-right">
             <ul class="menu">
               <li><input type="search" placeholder="Search"></li>
               <li><button type="button" class="button">Search</button></li>
             </ul>
           </div> -->
-        </div>
     </div>
-    <div class="main-body-section">
-        <div class="header-border-section">
-            <h1 class="header-1 text-uppercase">Daring Dinosaurs Dictionary</h1>
+  </div>
+  <div class="main-body-section">
+    <div class="header-border-section">
+      <h1 class="header-1 text-uppercase">Daring Dinosaurs Dictionary</h1>
+    </div>
+    <div class="description-paragraph">
+      <p>Our website will take a word and return back the definition, wikipedia entry, and top 5 Youtube results
+        for the entered word.</p>
+    </div>
+    <div class="search-bar-with-logo text-center">
+      <div class="input-group input-group-rounded" style="width: 500px;">
+        <input class="input-group-field" type="search" id="search">
+        <div class="input-group-button">
+          <input type="submit" class="button secondary" id="searchBtn">
         </div>
-        <div class="description-paragraph">
-            <p>Our website will take a word and return back the definition, wikipedia entry, and top 5 Youtube results
-                for the entered word.</p>
-        </div>
-        <div class="search-bar-with-logo text-center">
-            <div class="input-group input-group-rounded" style="width: 500px;">
-                <input class="input-group-field" type="search" id="search">
-                <div class="input-group-button">
-                    <input type="submit" class="button secondary" id="searchBtn">
-                </div>
-            </div>
-        </div>
-        <div class="dictionaryText row">
-            <div class="col-md-12">
-              <div id="dictionaryTextArea">
+      </div>
+    </div>
+    <div class="dictionaryText row">
+      <div class="col-md-12">
+        <div id="dictionaryTextArea">
       
-        <div class="api-logos">
-            <div class="horizontal-flex-container">
-                <img src="assets/img/Dictonary-Logo.png" width="10%" class="logo-images dictionary-logo">
-                <img src="assets/img/Wikipedia-Logo.png" width="10%" class="logo-images">
-                <img src="assets/img/Youtube-Logo.png" width="10%" class="logo-images youtube-logo">
-            </div>
-        </div>
+      </div>
     </div>
+    <div class="api-logos">
+      <div class="horizontal-flex-container">
+        <img src="assets/img/Dictonary-Logo.png" width="10%" class="logo-images dictionary-logo">
+        <img src="assets/img/Wikipedia-Logo.png" width="10%" class="logo-images">
+        <img src="assets/img/Youtube-Logo.png" width="10%" class="logo-images youtube-logo">
+      </div>
+    </div>
+  </div>
 
   <div class="row">
     <div class="col-md-12">
@@ -81,25 +83,26 @@
         <p id="wiki-article"></p>
   </div>
 
-    <div class="row column footer-background">
-        <hr>
-        <ul class="menu">
-            <li>Daring Dinosaurs Project</li>
-            <li><a href="#">Home</a></li>
-            <li><a href="#">About</a></li>
-            <li><a href="#">Contact</a></li>
-            <li class="float-right">Copyright 2023</li>
-        </ul>
-    </div>
-    <script src="assets/js/vendor/jquery.js"></script>
-    <script src="assets/js/vendor/what-input.js"></script>
-    <script src="assets/js/vendor/foundation.js"></script>
-    <script src="assets/js/app.js"></script>
-    <script src="assets/js/script.js"></script>
-    <script src="./assets/js/youTube.js"></script>
-    <script>
-        $(document).foundation();
-    </script>
+  <div class="row column footer-background">
+    <hr>
+    <ul class="menu">
+      <li>Daring Dinosaurs Project</li>
+      <li><a href="#">Home</a></li>
+      <li><a href="#">About</a></li>
+      <li><a href="#">Contact</a></li>
+      <li class="float-right">Copyright 2023</li>
+    </ul>
+  </div>
+  <script src="assets/js/vendor/jquery.js"></script>
+  <script src="assets/js/vendor/what-input.js"></script>
+  <script src="assets/js/vendor/foundation.js"></script>
+  <script src="assets/js/app.js"></script>
+  <script src="assets/js/script.js"></script>
+  <script src="./assets/js/youTube.js"></script>
+  <script src="./assets/js/wiki.js"></script>
+  <script>
+    $(document).foundation();
+  </script>
 </body>
 
 </html>
