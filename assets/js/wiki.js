@@ -44,6 +44,10 @@ async function fetchWikipedia(searchTerm) {
 
     var parseResponse = await fetch(parseUrl);
     var parseResponseJson = await parseResponse.json();
+
+    console.log(parseResponseJson.parse.text);
+
+    document.getElementById("wiki-article").innerHTML = parseResponseJson.parse.text;
 }
 
 //searching for the body of the article
@@ -62,7 +66,7 @@ function fetchWikipediaBody(searchTerm) {
     url = url + "?origin=*";
     Object.keys(params).forEach(function(key){url += "&" + key + "=" + params[key];});
 
-    fetch(url)
+    //fetch(url)
 /*         .then(function(response){return response.json();})
         .then(function(response){$('#wiki-article').text(response.parse.text);})
         //.then(function(parse) {$('#wiki-article').text(parse);})
