@@ -11,19 +11,20 @@ function Definition() {
         var phonetics = data[0].phonetics[1].text
         var sound = data[0].phonetics[1].audio
         $("#dictionaryTextArea").append()
-        for (const ele of definition) {
-            // var loopDefinition =  data[0].meanings[i].definitions[i].definition;
-            //$("#dictionaryTextArea").append(loopDefinition);
+        
 
 
             $("#dictionaryTextArea").append()
 
-
+// for( i = 0; i < 5 ; i++){
+//     console.log(data)
+//     }
+// }
             for (const ele of definition) {
                 // var loopDefinition =  data[0].meanings[i].definitions[i].definition;
-                //$("#dictionaryTextArea").append(loopDefinition); 
+                // $("#dictionaryTextArea").append(loopDefinition); 
 
-                //console.log(ele)
+                console.log(ele)
                 var part = ele.partOfSpeech || ""
                 var definitionPart = ele.definitions
                 var img = document.createElement("img");
@@ -33,32 +34,39 @@ function Definition() {
                 };
                 $("#dictionaryTextArea").append(img)
 
-                ele.definitions.forEach(definition => {
-                    console.log(definition)
-                    console.log(definitionPart[0].definition)
-                    // $("#dictionaryTextArea").append(definition , part)
+                // ele.definitions.forEach(definition => {
+                //     console.log(definition)
+                //     console.log(definitionPart[0].definition)
+                // $("#dictionaryTextArea").append(definition , part)}
 
 
+
+                document.getElementById("partSpeech").textContent = part;
+                document.getElementById("define").textContent = definitionPart[0].definition;
+                document.getElementById("phonetics").textContent = phonetics;
                     ele.definitions.forEach(definition => {
                         console.log(definition)
                         console.log(definitionPart[0].definition)
 
+                       //$("#dictionaryTextArea").append(definition, part)
 
-                        // $("#dictionaryTextArea").append(definition , part)
 
-
-                        $("#dictionaryTextArea").append(phonetics, part, definitionPart[0].definition)
+    
+    
+                        //$("#definition").append(phonetics, part, definitionPart[i].definition)
                         //var img = $("#audio-image").setAttribute("src","https://png.pngtree.com/png-vector/20190307/ourmid/pngtree-vector-high-volume-icon-png-image_762948.jpg")
-                    })}
-                    )
-
-                    // in for loop grab part
-                    //do another for loop using ele to update array
-                    // do html stuff
+            })
                 }
-    }}
-    );
-}
+
+                // in for loop grab part
+                //do another for loop using ele to update array
+                // do html stuff
+            })
+        }
+
+    
+    
+
 
 
 
