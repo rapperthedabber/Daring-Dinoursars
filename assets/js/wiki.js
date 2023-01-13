@@ -1,9 +1,11 @@
 // wikipedia-api code 
-
 // fetchWikipedia 
-function fetchWikipedia(searchTerm) { 
 
-    var url = "https://en.wikipedia.org/w/api.php"; 
+//searching for title of article based on search term 
+async function fetchWikipedia(searchTerm) { 
+
+    // fetch article title and wiki link of search term
+    var openSearchUrl = "https://en.wikipedia.org/w/api.php"; 
 
     var params = {
         action: "opensearch",
@@ -13,50 +15,53 @@ function fetchWikipedia(searchTerm) {
         format: "json"
     };
 
-    url = url + "?origin=*";
-    Object.keys(params).forEach(function(key){url += "&" + key + "=" + params[key];});
+    openSearchUrl = openSearchUrl + "?origin=*";
+    Object.keys(params).forEach(function(key){openSearchUrl += "&" + key + "=" + params[key];});
 
-    fetch(url)
-        .then(function(response){return response.json();})
-        .then(function(response) {$('#wiki-title').text(response[1][0]);})
-        .catch(function(error){$('#wiki-article').text(error);});
-}
+    var openSearchResponse = await fetch(openSearchUrl);
+    var openSearchResponseJson = await openSearchResponse.json();
 
-function fetchWikipediaBody(searchTerm) { 
+    var wikiTitle = openSearchResponseJson[1][0];
+    var wikiLink = openSearchResponseJson[3][0];
+    var wikiLinkArray = wikiLink.split("/");
+    var wikiTerm = wikiLinkArray[wikiLinkArray.length - 1];
 
-    var url = "https://en.wikipedia.org/w/api.php"; 
+    $('#wiki-title').text(wikiTitle);
+
+    // get wiki article body
+    var parseUrl = "https://en.wikipedia.org/w/api.php"; 
 
     var params = {
         action: "parse",
-        page: searchTerm,
+        page: wikiTerm,
         prop: "text",
         formatversion: 2,
         format: "json"
     };
 
-    url = url + "?origin=*";
-    Object.keys(params).forEach(function(key){url += "&" + key + "=" + params[key];});
+    parseUrl = parseUrl + "?origin=*";
+    Object.keys(params).forEach(function(key){parseUrl += "&" + key + "=" + params[key];});
 
-    fetch(url)
-        .then(function(response){return response.json();})
-        .then(function(response){$('#wiki-article').text(response.parse.text);})
-        //.then(function(parse) {$('#wiki-article').text(parse);})
-        .catch(function(error){console.log(error);});
+    var parseResponse = await fetch(parseUrl);
+    var parseResponseJson = await parseResponse.json();
+
+    document.getElementById("wiki-article").innerHTML = parseResponseJson.parse.text;
 }
 
-function callWikiAPIs() {
+function callWikiAPI() {
     var search = $('#search').val();
     fetchWikipedia(search);
-    fetchWikipediaBody(search);
 }
 
+//calling API when you click submit 
 $('#searchBtn').click(function(event) {
     event.preventDefault();
-    callWikiAPIs();
+    callWikiAPI();
 })
 
+//calling API as you press enter key
 searchbar.addEventListener('keypress', function (e) {
     if (e.key === 'Enter') {
-        callWikiAPIs();
+        callWikiAPI();
     }
 });
