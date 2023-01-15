@@ -3,7 +3,7 @@
 
 //searching for title of article based on search term 
 async function fetchWikipedia(searchTerm) { 
-
+    document.querySelector('.wikiResult').classList.remove('hide')
     // fetch article title and wiki link of search term
     var openSearchUrl = "https://en.wikipedia.org/w/api.php"; 
 
@@ -26,8 +26,8 @@ async function fetchWikipedia(searchTerm) {
     var wikiLinkArray = wikiLink.split("/");
     var wikiTerm = wikiLinkArray[wikiLinkArray.length - 1];
 
-    $('#wiki-title').text(wikiTitle);
-
+    $('#wiki-title').text('wikipedia results: ' + wikiTitle);
+    console.log(wikiTitle)
     // get wiki article body
     var parseUrl = "https://en.wikipedia.org/w/api.php"; 
 
@@ -44,7 +44,7 @@ async function fetchWikipedia(searchTerm) {
 
     var parseResponse = await fetch(parseUrl);
     var parseResponseJson = await parseResponse.json();
-
+    console.log(parseResponseJson)
     document.getElementById("wiki-article").innerHTML = parseResponseJson.parse.text;
 }
 

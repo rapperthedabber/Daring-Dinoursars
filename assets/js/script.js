@@ -42,6 +42,7 @@ function Definition() {
                 var definitionPart = ele.definitions
                 var img = document.querySelector("img");
                  img.setAttribute("src", "https://png.pngtree.com/png-vector/20190115/ourmid/pngtree-sound-audio-icon--line-style-vector-illustration-png-image_314747.jpg");
+                 img.setAttribute("id", "clickImg");
                   img.onclick = function () {
                     window.location.href = sound;
                 };

@@ -12,7 +12,7 @@ $(document).ready(function() {
 
     var search = $('#search').val()
     console.log(search)
-   videoSearch(apiKey, search, 1)
+   videoSearch(apiKey, search, 5)
 })
 
 
@@ -30,12 +30,22 @@ fetch(url).then(res => res.json()).then(data => {
 
     data.items.forEach(item  => {
 
-        video = `
-       <iframe width="420" height"315 src="http://www.youtube.com/embed/${item.id.videoId}" frameborder="0" allowfullscreen></iframe> 
+        var videoAppear = item.snippet.thumbnails.high.url
+        var videoUrlAppear = 'https://www.youtube.com/watch?v=' + item.id.videoId
         
-        `
-        console.log(video)
-       $("#videos").append(video)
+            var imgEl = $('<img>').attr('src', videoAppear).addClass('picture-frame')
+            var videoAnchorTag = $('<a>').attr('href', videoUrlAppear).attr('target', '_blank')
+        
+        console.log( $("#videos"))
+        $("#videos").append(videoAnchorTag.append(imgEl))
+
+        
+    //     video = `
+    //    <iframe width="420" height"315 src="http://www.youtube.com/embed/${item.id.videoId}" frameborder="0" allowfullscreen></iframe> 
+        
+    //     `
+    //     console.log(video)
+    //    $("#videos").append(video)
     });
 })
 
