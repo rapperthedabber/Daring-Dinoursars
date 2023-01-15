@@ -54,8 +54,19 @@ function Definition() {
 
 
 
-                document.getElementById("partSpeech").textContent = part;
-                document.getElementById("define").textContent = definitionPart[0].definition;
+                // document.getElementById("partSpeech").textContent = part;
+                // document.getElementById("define").textContent = data[0].meanings[0].definitions[0].definition
+                //document.getElementById("define2").textContent =data[0].meanings[0].definitions[1].definition
+                if(definitions.length === 1){
+                    document.getElementById("partSpeech").textContent = part;
+                    document.getElementById("define").textContent = data[0].meanings[0].definitions[0].definition
+                    document.getElementById("define2").style.display = "none";
+                  
+                }else{
+                    document.getElementById("partSpeech").textContent = part;
+                    document.getElementById("define").textContent = data[0].meanings[0].definitions[0].definition
+                    document.getElementById("define2").textContent =data[0].meanings[0].definitions[1].definition}
+                
                 document.getElementById("phonetics").textContent = phonetics;
                     ele.definitions.forEach(definition => {
                         console.log(definition)
