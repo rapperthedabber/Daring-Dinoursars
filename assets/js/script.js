@@ -2,10 +2,12 @@ var searchbar = document.querySelector(".input-group-field");
 var button = document.querySelector(".button");
 var dictionarytext = $('#dictionaryTextArea');
 function Definition() {
+    document.querySelector('.dictionaryText').classList.remove('hide')
     $('#dictionaryTextArea').empty()
     var url = "https://api.dictionaryapi.dev/api/v2/entries/en/" + searchbar.value
     fetch(url).then(response => (response.json())).then(data => {
         console.log(data)
+        $('#definitionTitlePop').text('Definition:');
         if(data.title){
             console.log("did not go through")
             document.getElementById("phonetics").textContent = data.title
@@ -43,6 +45,7 @@ function Definition() {
                 var img = document.querySelector("img");
                  img.setAttribute("src", "https://png.pngtree.com/png-vector/20190115/ourmid/pngtree-sound-audio-icon--line-style-vector-illustration-png-image_314747.jpg");
                  img.setAttribute("id", "clickImg");
+                 img.setAttribute('target', '_blank');
                   img.onclick = function () {
                     window.location.href = sound;
                 };
@@ -55,19 +58,8 @@ function Definition() {
 
 
 
-                // document.getElementById("partSpeech").textContent = part;
-                // document.getElementById("define").textContent = data[0].meanings[0].definitions[0].definition
-                //document.getElementById("define2").textContent =data[0].meanings[0].definitions[1].definition
-                if(definitions.length === 1){
-                    document.getElementById("partSpeech").textContent = part;
-                    document.getElementById("define").textContent = data[0].meanings[0].definitions[0].definition
-                    document.getElementById("define2").style.display = "none";
-                  
-                }else{
-                    document.getElementById("partSpeech").textContent = part;
-                    document.getElementById("define").textContent = data[0].meanings[0].definitions[0].definition
-                    document.getElementById("define2").textContent =data[0].meanings[0].definitions[1].definition}
-                
+                document.getElementById("partSpeech").textContent = part;
+                document.getElementById("define").textContent = definitionPart[0].definition;
                 document.getElementById("phonetics").textContent = phonetics;
                     ele.definitions.forEach(definition => {
                         console.log(definition)

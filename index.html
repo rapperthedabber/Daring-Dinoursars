@@ -10,7 +10,9 @@
   <!-- <link rel="reset" href="assets/css/reset.css"> -->
   <link rel="stylesheet" href="assets/css/stylesheet.css">
   <!-- <link rel="stylesheet" href="https://dhbhdrzi4tiry.cloudfront.net/cdn/sites/foundation.min.css"> -->
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Trirong">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@700&family=Mukta:wght@300;700&display=swap" rel="stylesheet">
   <meta class="foundation-mq" name="foundation-mq" content>
   <title>Dictionary Project</title>
   <!-- <style>
@@ -57,7 +59,12 @@
       </div>
     </div>
   </div>
-  <div class="dictionaryText row">
+  <div>
+    <div class="definitionTitle">
+      <h2 id="definitionTitlePop"></h2>
+    </div>
+  </div>
+  <div class="dictionaryText row hide">
     <div class="col-md-12">
       <div id="dictionaryTextArea">
 
@@ -72,6 +79,9 @@
       <h5 id = "define2"></h5>
     </div>
 
+  </div>
+  <div>
+    <h2 id="youtubeVideoTitle"></h2>
   </div>
   <div id="videos"></div>
 

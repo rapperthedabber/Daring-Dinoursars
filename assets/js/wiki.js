@@ -26,7 +26,7 @@ async function fetchWikipedia(searchTerm) {
     var wikiLinkArray = wikiLink.split("/");
     var wikiTerm = wikiLinkArray[wikiLinkArray.length - 1];
 
-    $('#wiki-title').text('wikipedia results: ' + wikiTitle);
+    $('#wiki-title').text('Wikipedia Article:');
     console.log(wikiTitle)
     // get wiki article body
     var parseUrl = "https://en.wikipedia.org/w/api.php"; 
