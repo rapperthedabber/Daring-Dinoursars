@@ -72,17 +72,22 @@
 #clickImg{
     height: 60px;
     width: 60px;
+    border: 3px solid white;
 }
 
 #clickImg:hover {
-    height: 70px;
-    width: 70px;
+    cursor: pointer;
+    border: 3px solid aqua;
 }
 
 #videos {
     /* border: 1px solid black; */
     display: flex;
     justify-content: space-between;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-bottom: 20px;
+    /* padding-top: 5px; */
 }
 
 .picture-frame {
@@ -90,11 +95,21 @@
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
 }
 
+.picture-frame:hover {
+    border: 5px solid rgb(0, 247, 255);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+}
+
 #definitions {
-    border: 1px solid black;
+    /* border: 1px solid black; */
     text-align: center;
     height: 25vh;
+    border: 5px solid rgb(255, 255, 255);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    width: 90%;
+    margin: 0 auto;
 }
+
 
 #wiki-article {
     border: 5px solid rgb(255, 255, 255);
@@ -108,8 +123,23 @@
 
 #wiki-title {
     text-align: center;
+    font-family: 'Mukta', sans-serif;
+    text-decoration: underline;
 }
 
 .hide {
     display: none;
+}
+
+#definitionTitlePop {
+    text-align: center;
+    font-family: 'Mukta', sans-serif;
+    text-decoration: underline;
+}
+
+#youtubeVideoTitle {
+    text-align: center;
+    font-family: 'Mukta', sans-serif;
+    padding-top: 20px;
+    text-decoration: underline;
 }

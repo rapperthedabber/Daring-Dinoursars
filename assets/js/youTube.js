@@ -2,9 +2,9 @@
 
 
 $(document).ready(function() {
-  var apiKey = 'AIzaSyBkLVz5IK5NGgGSgn-Nf6-Oxs59yQIlO08'  
-  var video = ''
-  var videos = $('#videos')
+  var apiKey = 'AIzaSyA0_825U4h0ZZTExYZ_6QZfquUkOE2gf1Y'  
+//   var video = ''
+//   var videos = $('#videos')
 
 
  $('#searchBtn').click(function(event) {
@@ -19,11 +19,12 @@ $(document).ready(function() {
 
 
  function videoSearch(key, search, maxResults) {
-
+    
+    $('#youtubeVideoTitle').text('Youtube Results:')
     $("#videos").empty()
-    let url = ` https://www.googleapis.com/youtube/v3/search?key=${key}&type=video&part=snippet&maxResults=${maxResults}&q=${search}`;
+    let url = `https://www.googleapis.com/youtube/v3/search?key=${key}&type=video&part=snippet&maxResults=${maxResults}&q=${search}`;
 
-fetch(url).then(res => res.json()).then(data => {
+    fetch(url).then(res => res.json()).then(data => {
 
 
     console.log(data)
