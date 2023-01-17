@@ -17,6 +17,7 @@ function Definition() {
         }
         var getWord = localStorage.getItem("Word");
         document.querySelector(".searchHistory").textContent = getWord;
+      
         document.querySelector(".searchHistory").addEventListener("click", function () {
             var url = "https://api.dictionaryapi.dev/api/v2/entries/en/" + getWord
             fetch(url).then(response => (response.json())).then(data => {
@@ -37,7 +38,7 @@ function Definition() {
         var phonetics = data[0].phonetics[1].text
         var sound = data[0].phonetics[1].audio
         $("#dictionaryTextArea").append()
-        // console.log(data[0].parse.title)
+       // console.log(data[0].parse.title)
 
 
         // img.setAttribute("src", "https://png.pngtree.com/png-vector/20190115/ourmid/pngtree-sound-audio-icon--line-style-vector-illustration-png-image_314747.jpg");
@@ -94,7 +95,7 @@ function Definition() {
                 //$("#definition").append(phonetics, part, definitionPart[i].definition)
                 //var img = $("#audio-image").setAttribute("src","https://png.pngtree.com/png-vector/20190307/ourmid/pngtree-vector-high-volume-icon-png-image_762948.jpg")
             })
-            localStorage.setItem("Definition", definitionPart[0].definition)
+             localStorage.setItem("Definition", definitionPart[0].definition)
         }
 
         // in for loop grab part
