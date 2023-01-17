@@ -49,8 +49,11 @@ $(document).ready(function() {
     //     console.log(video)
     //    $("#videos").append(video)
     });
+   
 })
 
 
  }
 })
+
+
