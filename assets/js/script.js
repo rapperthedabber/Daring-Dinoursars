@@ -15,25 +15,44 @@ function Definition() {
             document.getElementById("partSpeech").textContent = data.message
             document.getElementById("define").textContent = data.resolution
         }
-        var getWord = localStorage.getItem("Word");
-        document.querySelector(".searchHistory").textContent = getWord;
-      
-        document.querySelector(".searchHistory").addEventListener("click", function () {
-            var url = "https://api.dictionaryapi.dev/api/v2/entries/en/" + getWord
-            fetch(url).then(response => (response.json())).then(data => {
-                document.getElementById("phonetics").textContent = data[0].phonetics[1].text
-                document.getElementById("partSpeech").textContent = data[0].meanings[0].partOfSpeech
-                document.getElementById("define").textContent = data[0].meanings[0].definitions[0].definition
-                var sound = data[0].phonetics[1].audio
-                img.onclick = function () {
-                    window.location.href = sound;
-                };
+        var previousSearches = JSON.parse(localStorage.getItem("searchHistory"))||[]
+        if (previousSearches.indexOf(searchbar.value) == -1) {
+            previousSearches.unshift(searchbar.value)
+        } else {
+            previousSearches.splice(previousSearches.indexOf(searchbar.value), 1)
+            previousSearches.unshift(searchbar.value)
+        }
+        if (previousSearches.length > 3) {
+            previousSearches = previousSearches.slice(0, 3)
+        }
+        localStorage.setItem("searchHistory", JSON.stringify(previousSearches))
+        $('.searchHistory').empty()
+            previousSearches.forEach((search) => {
+            var button = document.createElement("button")
+            button.classList.add("searchHistoryButton")
+            button.textContent = search
+            button.addEventListener("click", function () {
+                var url = "https://api.dictionaryapi.dev/api/v2/entries/en/" + search
+                fetch(url).then(response => (response.json())).then(data => {
+                    document.getElementById("phonetics").textContent = data[0].phonetics[1].text
+                    document.getElementById("partSpeech").textContent = data[0].meanings[0].partOfSpeech
+                    document.getElementById("define").textContent = data[0].meanings[0].definitions[0].definition
+                    var sound = data[0].phonetics[1].audio
+                    img.onclick = function () {
+                        window.location.href = sound;
+                    };
+                })
             })
+            document.querySelector(".searchHistory").appendChild(button)
         })
+
+        var searchTitle = document.createElement('h2')
+        searchTitle.textContent = "Search History:"
+        $('.searchHistory').prepend(searchTitle)
 
 
         console.log(data[0].word)
-        localStorage.setItem("Word", searchbar.value);
+
         var definition = data[0].meanings
         var phonetics = data[0].phonetics[1].text
         var sound = data[0].phonetics[1].audio
@@ -95,7 +114,6 @@ function Definition() {
                 //$("#definition").append(phonetics, part, definitionPart[i].definition)
                 //var img = $("#audio-image").setAttribute("src","https://png.pngtree.com/png-vector/20190307/ourmid/pngtree-vector-high-volume-icon-png-image_762948.jpg")
             })
-             localStorage.setItem("Definition", definitionPart[0].definition)
         }
 
         // in for loop grab part
