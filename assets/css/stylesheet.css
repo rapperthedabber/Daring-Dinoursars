@@ -103,7 +103,7 @@
 #definitions {
     /* border: 1px solid black; */
     text-align: center;
-    height: 25vh;
+    min-height: 25vh;
     border: 5px solid rgb(255, 255, 255);
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
     width: 90%;

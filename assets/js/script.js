@@ -1,13 +1,60 @@
+
+$(document).ready(function() {
 var searchbar = document.querySelector(".input-group-field");
 var button = document.querySelector(".button");
 var dictionarytext = $('#dictionaryTextArea');
+
+
+
+    var apiKey = 'AIzaSyA0_825U4h0ZZTExYZ_6QZfquUkOE2gf1Y'  
+  
+  
+   $('#searchBtn').click(function(event) {
+      event.preventDefault()
+  
+      var videoSearchResults = $('#search').val()
+      console.log(videoSearchResults)
+     videoSearch(videoSearchResults)
+  })
+  
+  
+  function videoSearch(videoSearchResults) {
+      var maxResults = 5
+      $('#youtubeVideoTitle').text('Youtube Results:')
+      $("#videos").empty()
+      let url = `https://www.googleapis.com/youtube/v3/search?key=${apiKey}&type=video&part=snippet&maxResults=${maxResults}&q=${videoSearchResults}`;
+  
+      fetch(url).then(res => res.json()).then(data => {
+  
+  
+      console.log(data)
+  
+      data.items.forEach(item  => {
+  
+          var videoAppear = item.snippet.thumbnails.high.url
+          var videoUrlAppear = 'https://www.youtube.com/watch?v=' + item.id.videoId
+          
+              var imgEl = $('<img>').attr('src', videoAppear).addClass('picture-frame')
+              var videoAnchorTag = $('<a>').attr('href', videoUrlAppear).attr('target', '_blank')
+          
+          console.log( $("#videos"))
+          $("#videos").append(videoAnchorTag.append(imgEl))
+  
+      });
+     
+  })
+   }
+
+
+
+
 function Definition() {
     document.querySelector('.dictionaryText').classList.remove('hide')
     $('#dictionaryTextArea').empty()
 
     var url = "https://api.dictionaryapi.dev/api/v2/entries/en/" + searchbar.value
     fetch(url).then(response => (response.json())).then(data => {
-        console.log(data)
+        console.log("Dictionary: ", data)
         $('#definitionTitlePop').text('Definition:');
         if (data.title) {
             console.log("did not go through")
@@ -42,8 +89,11 @@ function Definition() {
                         window.location.href = sound;
                     };
                 })
+                videoSearch(search)
+                fetchWikipedia(search)
             })
             document.querySelector(".searchHistory").appendChild(button)
+            
         })
 
         var searchTitle = document.createElement('h2')
@@ -57,14 +107,6 @@ function Definition() {
         var phonetics = data[0].phonetics[1].text
         var sound = data[0].phonetics[1].audio
         $("#dictionaryTextArea").append()
-       // console.log(data[0].parse.title)
-
-
-        // img.setAttribute("src", "https://png.pngtree.com/png-vector/20190115/ourmid/pngtree-sound-audio-icon--line-style-vector-illustration-png-image_314747.jpg");
-        // img.onclick = function () {
-        //     window.location.href = sound;
-        // };
-        // $("#definitions").append(img)
 
 
 
@@ -91,14 +133,6 @@ function Definition() {
                 window.location.href = sound;
             };
 
-
-            // ele.definitions.forEach(definition => {
-            //     console.log(definition)
-            //     console.log(definitionPart[0].definition)
-            // $("#dictionaryTextArea").append(definition , part)}
-
-
-
             document.getElementById("partSpeech").textContent = part;
             document.getElementById("define").textContent = definitionPart[0].definition;
             document.getElementById("phonetics").textContent = phonetics;
@@ -106,37 +140,16 @@ function Definition() {
                 console.log(definition)
                 console.log(definitionPart[0].definition)
 
-                //$("#dictionaryTextArea").append(definition, part)
-
-
-
-
-                //$("#definition").append(phonetics, part, definitionPart[i].definition)
-                //var img = $("#audio-image").setAttribute("src","https://png.pngtree.com/png-vector/20190307/ourmid/pngtree-vector-high-volume-icon-png-image_762948.jpg")
             })
         }
 
-        // in for loop grab part
-        //do another for loop using ele to update array
-        // do html stuff
+
     })
 }
 
-// function searchTerm() {
-//     var word = JSON.parse(localStorage.getItem("Word"));
-//     var searchHistory = document.querySelector("#searchHistory");
-//     searchHistory.textContent = word;
-// }
 
+  
 
-// searchTerm()
-
-
-
-
-// in for loop grab part 
-//do another for loop using ele to update array
-// do html stuff 
 
 
 button.addEventListener("click", Definition);
@@ -150,3 +163,4 @@ searchbar.addEventListener('keypress', function (e) {
 
 
 
+})
