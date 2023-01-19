@@ -27,8 +27,7 @@ async function fetchWikipedia(searchTerm) {
     var wikiTerm = wikiLinkArray[wikiLinkArray.length - 1];
 
     $('#wiki-title').text('Wikipedia Article:');
-    console.log(wikiTitle)
-    // get wiki article body
+
     var parseUrl = "https://en.wikipedia.org/w/api.php"; 
 
     var params = {
@@ -44,7 +43,7 @@ async function fetchWikipedia(searchTerm) {
 
     var parseResponse = await fetch(parseUrl);
     var parseResponseJson = await parseResponse.json();
-    console.log(parseResponseJson)
+
     document.getElementById("wiki-article").innerHTML = parseResponseJson.parse.text;
 }
 
