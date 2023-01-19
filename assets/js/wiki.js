@@ -57,10 +57,3 @@ $('#searchBtn').click(function(event) {
     event.preventDefault();
     callWikiAPI();
 })
-
-//calling API as you press enter key
-searchbar.addEventListener('keypress', function (e) {
-    if (e.key === 'Enter') {
-        callWikiAPI();
-    }
-});
