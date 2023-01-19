@@ -6,8 +6,9 @@ var dictionarytext = $('#dictionaryTextArea');
 
 
 
-    var apiKey = 'AIzaSyAEpNaGklHhXXM_gtNw0RnsJ52SQOjluOQ'  
+    var apiKey = ''  
   
+    // preventing default event of video to not disappear on the screen on search result
   
    $('#searchBtn').click(function(event) {
       event.preventDefault()
@@ -16,7 +17,7 @@ var dictionarytext = $('#dictionaryTextArea');
      videoSearch(videoSearchResults)
   })
   
-  
+  // this function makes pull all together url for youTube with API key also the video search and max result we want to see on screen
   function videoSearch(videoSearchResults) {
       var maxResults = 5
       $('#youtubeVideoTitle').text('Youtube Results:')
@@ -25,12 +26,12 @@ var dictionarytext = $('#dictionaryTextArea');
   
       fetch(url).then(res => res.json()).then(data => {
 
-  
+  // this for each loop making Scrolling over the YouTube thumbnails shows the title of the video
       data.items.forEach(item  => {
   
           var videoAppear = item.snippet.thumbnails.high.url
           var videoUrlAppear = 'https://www.youtube.com/watch?v=' + item.id.videoId
-          
+    // this anchor tag makes video available to appear on screen       
               var imgEl = $('<img>').attr('src', videoAppear).addClass('picture-frame')
               var videoAnchorTag = $('<a>').attr('href', videoUrlAppear).attr('target', '_blank')
           
