@@ -17,7 +17,7 @@ var dictionarytext = $('#dictionaryTextArea');
      videoSearch(videoSearchResults)
   })
   
-  // this function makes pull all together url for youTube with API key also the video search and max result we want to see on screen
+  // this function makes pull all together url for youTube with API key also the video search and how many videos we want to see on screen
   function videoSearch(videoSearchResults) {
       var maxResults = 5
       $('#youtubeVideoTitle').text('Youtube Results:')
