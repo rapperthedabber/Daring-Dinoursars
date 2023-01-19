@@ -43,4 +43,3 @@ function callWikiAPI() {
 $('#searchBtn').click(function(event) {
     event.preventDefault();
     callWikiAPI();
-})
