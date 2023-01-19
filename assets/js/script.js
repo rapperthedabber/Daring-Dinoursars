@@ -6,14 +6,13 @@ var dictionarytext = $('#dictionaryTextArea');
 
 
 
-    var apiKey = 'AIzaSyA0_825U4h0ZZTExYZ_6QZfquUkOE2gf1Y'  
+    var apiKey = 'AIzaSyAEpNaGklHhXXM_gtNw0RnsJ52SQOjluOQ'  
   
   
    $('#searchBtn').click(function(event) {
       event.preventDefault()
   
       var videoSearchResults = $('#search').val()
-      console.log(videoSearchResults)
      videoSearch(videoSearchResults)
   })
   
@@ -25,9 +24,7 @@ var dictionarytext = $('#dictionaryTextArea');
       let url = `https://www.googleapis.com/youtube/v3/search?key=${apiKey}&type=video&part=snippet&maxResults=${maxResults}&q=${videoSearchResults}`;
   
       fetch(url).then(res => res.json()).then(data => {
-  
-  
-      console.log(data)
+
   
       data.items.forEach(item  => {
   
@@ -37,7 +34,6 @@ var dictionarytext = $('#dictionaryTextArea');
               var imgEl = $('<img>').attr('src', videoAppear).addClass('picture-frame')
               var videoAnchorTag = $('<a>').attr('href', videoUrlAppear).attr('target', '_blank')
           
-          console.log( $("#videos"))
           $("#videos").append(videoAnchorTag.append(imgEl))
   
       });
@@ -54,7 +50,6 @@ function Definition() {
 
     var url = "https://api.dictionaryapi.dev/api/v2/entries/en/" + searchbar.value
     fetch(url).then(response => (response.json())).then(data => {
-        console.log("Dictionary: ", data)
         $('#definitionTitlePop').text('Definition:');
         if (data.title) {
             console.log("did not go through")
@@ -101,8 +96,6 @@ function Definition() {
         $('.searchHistory').prepend(searchTitle)
 
 
-        console.log(data[0].word)
-
         var definition = data[0].meanings
         var phonetics = data[0].phonetics[1].text
         var sound = data[0].phonetics[1].audio
@@ -113,16 +106,8 @@ function Definition() {
         $("#dictionaryTextArea").append()
 
 
-
-        // for( i = 0; i < 5 ; i++){
-        //     console.log(data)
-        //     }
-        // }
         for (const ele of definition) {
-            // var loopDefinition =  data[0].meanings[i].definitions[i].definition;
-            // $("#dictionaryTextArea").append(loopDefinition); 
 
-            console.log(ele)
             var part = ele.partOfSpeech || ""
             var definitionPart = ele.definitions
             var img = document.querySelector("img");
@@ -136,11 +121,7 @@ function Definition() {
             document.getElementById("partSpeech").textContent = part;
             document.getElementById("define").textContent = definitionPart[0].definition;
             document.getElementById("phonetics").textContent = phonetics;
-            ele.definitions.forEach(definition => {
-                console.log(definition)
-                console.log(definitionPart[0].definition)
-
-            })
+            
         }
 
 
