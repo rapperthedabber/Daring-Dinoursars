@@ -6,7 +6,7 @@ var dictionarytext = $('#dictionaryTextArea');
 
 
 
-    var apiKey = 'AIzaSyA0_825U4h0ZZTExYZ_6QZfquUkOE2gf1Y'  
+    var apiKey = 'AIzaSyAEpNaGklHhXXM_gtNw0RnsJ52SQOjluOQ'  
   
   
    $('#searchBtn').click(function(event) {
