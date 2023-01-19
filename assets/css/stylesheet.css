@@ -84,8 +84,8 @@
     /* border: 1px solid black; */
     display: flex;
     justify-content: space-between;
-    padding-left: 20px;
-    padding-right: 20px;
+    padding-left: 90px;
+    padding-right: 90px;
     padding-bottom: 20px;
     /* padding-top: 5px; */
 }
